@@ -1,0 +1,20 @@
+{
+  "name": "trackify",
+  "version": "0.1.0",
+  "description": "An HTTP server for sick tracks",
+  "main": "server.js",
+  "scripts": {
+    "knex": "knex"
+  },
+  "keywords": [
+    "http",
+    "server",
+    "postgresql"
+  ],
+  "author": "Natasha Hedeker <natasha.hedeker@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "knex": "^0.11.7",
+    "pg": "^6.0.1"
+  }
+}
