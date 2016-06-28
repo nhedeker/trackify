@@ -72,10 +72,12 @@ router.delete('/artists/:id', (req, res, next) => {
       if (!artist) {
         return next();
       }
-
+      // if you return a promise you can continue chaining it below
+      // hence why you don't need two catch statments for each promise
       return knex('artists')
         .del()
         .where('id', req.params.id)
+        // del doesn't return anything so needed to grab artist from earlier
         .then(() => {
           delete artist.id;
           res.send(artist);
