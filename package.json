@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "knex": "knex",
-    "heroku-postbuild": "knex migrate:latest"
+    "heroku-postbuild": "knex migrate:latest",
+    "nodemon": "nodemon server.js"
   },
   "keywords": [
     "http",
@@ -15,10 +16,16 @@
   "author": "Natasha Hedeker <natasha.hedeker@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
     "knex": "^0.11.7",
+    "morgan": "^1.7.0",
     "pg": "^6.0.1"
   },
   "engines": {
-  "node": "6.2.2"
+    "node": "6.2.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.9.2"
   }
 }
