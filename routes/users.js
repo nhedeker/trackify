@@ -21,7 +21,7 @@ router.post('/users', (req, res, next) => {
         email: req.body.email,
         hashed_password: hashed_password
       }, '*')
-      .then((users) => {
+      .then(() => {
         res.sendStatus(200);
       })
       .catch((err) => {
