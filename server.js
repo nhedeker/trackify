@@ -9,6 +9,7 @@ const bodyParser = require('body-parser');
 
 const artists = require('./routes/artists');
 const tracks = require('./routes/tracks');
+const users = require('./routes/users');
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.disable('x-powered-by');
 app.use(morgan('short'));
 app.use(bodyParser.json());
 
+app.use(users);
 app.use(artists);
 app.use(tracks);
 
