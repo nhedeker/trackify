@@ -12,7 +12,7 @@ router.get('/artists', (_req, res, next) => {
     })
     .catch((err) => {
       next(err);
-    })
+    });
 });
 
 router.get('/artists/:id', (req, res, next) => {
