@@ -10,6 +10,7 @@ const bodyParser = require('body-parser');
 const artists = require('./routes/artists');
 const tracks = require('./routes/tracks');
 const users = require('./routes/users');
+const session = require('./routes/session');
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use(bodyParser.json());
 app.use(users);
 app.use(artists);
 app.use(tracks);
+app.use(session);
 
 app.use((_req, res) => {
   res.sendStatus(404);
