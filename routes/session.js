@@ -28,6 +28,7 @@ router.post('/session', (req, res, next) => {
         }
 
         // User is authenticated
+        res.cookie('loggedIn', true);
         res.sendStatus(200);
       });
     })
@@ -35,5 +36,10 @@ router.post('/session', (req, res, next) => {
       next(err);
     });
 });
+
+router.delete('/session', (req, res, next) => {
+  res.clearCookie('loggedIn');
+  res.sendStatus(200);
+})
 
 module.exports = router;
