@@ -6,6 +6,8 @@ const port = process.env.PORT || 8000;
 
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const cookieSession = require('cookie-session');
 
 const artists = require('./routes/artists');
 const tracks = require('./routes/tracks');
@@ -18,6 +20,14 @@ app.disable('x-powered-by');
 
 app.use(morgan('short'));
 app.use(bodyParser.json());
+app.use(cookieParser());
+// now going to have req.cookies in request
+
+app.use(cookieSession({
+  name: 'session', // name of cookie to set
+  keys: ['some_secure_key']
+  // other cookie attributes like maxAge, expires, domain can be set here
+}));
 
 app.use(users);
 app.use(artists);
