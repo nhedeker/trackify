@@ -6,7 +6,7 @@ const knex = require('../knex');
 const bcrypt = require('bcrypt');
 
 const checkAuth = function(req, res, next) {
-  if (!req.session.user) {
+  if (!req.session.userId) {
     return res.sendStatus(401);
   }
 
@@ -40,7 +40,7 @@ router.post('/users', (req, res, next) => {
 
 // User follows an artist
 router.post('/users/artists/:artistId', checkAuth, (req, res, next) => {
-  const userId = req.session.user.id;
+  const userId = req.session.userId;
   const artistId = Number.parseInt(req.params.artistId);
 
   knex('users_artists')
@@ -57,7 +57,7 @@ router.post('/users/artists/:artistId', checkAuth, (req, res, next) => {
 });
 
 router.get('/users/artists', checkAuth, (req, res, next) => {
-  const userId = req.session.user.id;
+  const userId = req.session.userId;
 
   knex('artists')
     .innerJoin('users_artists', 'users_artists.artist_id', 'artists.id')

@@ -28,7 +28,7 @@ router.post('/session', (req, res, next) => {
         }
 
         // User is authenticated
-        req.session.user = user;
+        req.session.userId = user.id;
         res.cookie('loggedIn', true);
         res.sendStatus(200);
       });

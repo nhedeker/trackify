@@ -1,5 +1,9 @@
 'use strict';
 
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
+
 const express = require('express');
 const path = require('path');
 const port = process.env.PORT || 8000;
@@ -24,8 +28,8 @@ app.use(cookieParser());
 // now going to have req.cookies in request
 
 app.use(cookieSession({
-  name: 'session', // name of cookie to set
-  keys: ['some_secure_key']
+  name: 'trackify_session', // name of cookie to set
+  secret: process.env.SESSION_SECRET
   // other cookie attributes like maxAge, expires, domain can be set here
 }));
 
