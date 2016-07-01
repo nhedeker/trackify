@@ -6,6 +6,7 @@ exports.seed = function(knex) {
     .then(() => {
       return knex('tracks').insert([
         {
+          id: 1,
           artist_id: 1,
           title: 'Here Comes the Sun',
           likes: 28808736
