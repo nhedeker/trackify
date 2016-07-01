@@ -42,6 +42,6 @@ router.delete('/session', (req, res, next) => {
   req.session = null;
   res.clearCookie('loggedIn');
   res.sendStatus(200);
-})
+});
 
 module.exports = router;
